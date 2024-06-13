@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Lexend+Peta:wght@100..900&family=Zen+Dots&family>
+    <title>Student Registration</title>
+    <style>
+        body {
+            background-image: linear-gradient( 108.1deg,  rgba(167,220,225,1) 11.2%, rgba(217,239,242,1) 88.9% );
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: "Lato", sans-serif;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            font-family: "Lexend Peta", sans-serif;
+            font-style: normal;
+            font-size: 1.5em;
+            position: relative;
+            width: 100%;
+        }
+
+        .home-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: "Lato", sans-serif;
+            font-size: 16px;
+            padding: 20px;
+        }
+
+        .container {
+            width: 55%;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: "Lato", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            border-radius: 15px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-family: "Lexend Peta", sans-serif;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            color: #4CAF50;
+            border: 1px solid #4CAF50;
+            padding: 10px 40px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: white;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .navigation a:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"], input[type="date"] {
+            width: 80%;
+            padding: 8px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: auto;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 40px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #357a37;
+        }
+
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px 60px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-family: "Lato", sans-serif;
+            font-size: 12px;
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+
+    </head>
+<body>
+    <header>
+        <h1>STUDENT REGISTRATION</h1>
+        <div class="home-button">
+            <a href="/~cynthiam/landing_page.html" class="navigation">Home</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>REGISTER STUDENT</h2>
+        <form action="student_registration.php" method="POST">
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name" required>
+
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="date_of_birth">Date of Birth:</label>
+            <input type="date" id="date_of_birth" name="date_of_birth" required>
+
+            <input type="submit" value="Register">
+        </form>
+
+        <h2>DELETE STUDENT</h2>
+        <form action="delete_student.php" method="POST">
+            <label for="delete_first_name">First Name:</label>
+            <input type="text" name="first_name" id="delete_first_name" required>
+
+            <label for="delete_last_name">Last Name:</label>
+            <input type="text" name="last_name" id="delete_last_name" required>
+
+            <input type="submit" value="Delete">
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 CS451 - Cynthia Meneses Cervon</p>
+    </footer>
+</body>
+</html>

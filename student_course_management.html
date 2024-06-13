@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Lexend+Peta:wght@100..900&family=Zen+Dots&family>
+    <title>Instructor Course Management</title>
+    <style>
+        body {
+            background-image: linear-gradient( 109.6deg,  rgba(223,234,247,1) 11.2%, rgba(244,248,252,1) 91.1% );
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: "Lato", sans-serif;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            font-family: "Lexend Peta", sans-serif;
+            font-style: normal;
+            font-size: 1.5em;
+            position: relative;
+            width: 100%;
+        }
+
+        .home-button, .back-button {
+            position: absolute;
+            top: 20px;
+            font-family: "Lato", sans-serif;
+            font-size: 16px;
+        }
+
+        .home-button {
+            right: 70px;
+        }
+
+        .back-button {
+            right: 20px;
+        }
+
+        .container {
+            width: 55%;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: "Lato", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            border-radius: 15px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-family: "Lexend Peta", sans-serif;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 80%;
+            padding: 8px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: auto;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 40px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #357a37;
+        }
+
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px 60px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-family: "Lato", sans-serif;
+            font-size: 12px;
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>STUDENT COURSE MANAGEMENT</h1>
+        <a href="/~cynthiam/landing_page.html" class="home-button">Home</a>
+        <a href="/~cynthiam/course_managment.html" class="back-button">Back</a>
+    </header>
+
+    <div class="container">
+        <h2>ADD COURSE</h2>
+        <form action="student_add_course.php" method="post">
+            <label for="student_id">Enter Student ID:</label>
+            <input type="text" name="student_id" id="student_id" required>
+
+            <label for="course_code">Enter Course Code in Uppercase to Add:</label>
+            <input type="text" name="course_code" id="course_code" required>
+
+            <input type="submit" value="Add Course">
+        </form>
+
+        <h2>DROP COURSE</h2>
+        <form action="student_drop_course.php" method="post">
+            <label for="student_id">Enter Student ID:</label>
+            <input type="text" name="student_id" id="student_id" required>
+
+            <label for="course_code">Enter Course Code in Uppercase to Drop:</label>
+            <input type="text" name="course_code" id="course_code" required>
+
+            <input type="submit" value="Drop Course">
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 CS451 - Cynthia Meneses Cervon</p>
+    </footer>
+</body>
+</html>

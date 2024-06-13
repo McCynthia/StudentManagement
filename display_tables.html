@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Tables</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Select a Table to Display</h2>
+        <form>
+            <label for="tables">Choose a table:</label>
+            <select id="tables" name="tables">
+                <option value="Student">Student</option>
+                <option value="Course">Course</option>
+                <option value="Instructor">Instructor</option>
+                <option value="Department">Department</option>
+                <option value="Classroom">Classroom</option>
+                <option value="Enrollment">Enrollment</option>
+                <option value="Grade">Grade</option>
+                <option value="Attendance">Attendance</option>
+                <!-- Add more options for other tables -->
+            </select>
+        </form>
+        <div id="table-container">
+            <!-- Table content will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        // Function to fetch and display table contents based on selection
+        function displayTable() {
+            var selectedTable = document.getElementById("tables").value;
+
+            // Fetch data based on the selected table (you would typically use AJAX for this)
+            // Replace this example with actual AJAX calls to fetch data from your backend
+            fetch('get_table_data.php?table=' + selectedTable)
+                .then(response => response.json())
+                .then(data => {
+                    // Construct HTML table dynamically
+                    var tableHTML = '<h3>' + selectedTable + ' Table</h3>';
+                    tableHTML += '<table>';
+                    tableHTML += '<tr>';
+                    for (var key in data[0]) {
+                        tableHTML += '<th>' + key + '</th>';
+                    }
+                    tableHTML += '</tr>';
+                    data.forEach(row => {
+                        tableHTML += '<tr>';
+                        for (var key in row) {
+                            tableHTML += '<td>' + row[key] + '</td>';
+                        }
+                        tableHTML += '</tr>';
+                    });
+                    tableHTML += '</table>';
+
+                    // Display table in the container
+                    document.getElementById('table-container').innerHTML = tableHTML;
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
+        // Event listener for dropdown change
+        document.getElementById('tables').addEventListener('change', displayTable);
+
+        // Initial load of table (optional)
+        displayTable();
+    </script>
+</body>
+</html>
